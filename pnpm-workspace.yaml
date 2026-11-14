@@ -1,0 +1,5 @@
+allowBuilds:
+  argon2: true
+peerDependencyRules:
+  allowedVersions:
+    "vite-plus": "1.6.0"

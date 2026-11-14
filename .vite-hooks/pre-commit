@@ -1,0 +1,3 @@
+New-Item -ItemType Directory -Force -Path .vite-hooks | Out-Null
+Set-Content -Path .vite-hooks/pre-commit -Value "vp staged"
+vp hooks enable

@@ -1,0 +1,59 @@
+# Compiled output & dependencies
+node_modules/
+/dist/
+/build/
+
+# User uploads & local databases
+/uploads/
+/upload/
+**/database/
+*.sqlite
+*.sqlite3
+*.db
+
+# Environment variables
+.env
+.env.*
+.*.env
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# OS & Temp
+.DS_Store
+Thumbs.db
+.temp/
+.tmp/
+**/temp/
+
+# Tests
+/coverage/
+/.nyc_output/
+
+# IDEs and editors
+/.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+/cspell.json
+
+# IDE - VSCode (ignore all except shared team configs)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Node.js diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
