@@ -40,6 +40,7 @@ export default defineConfig({
       "import/no-cycle": "error",
       "no-console": ["warn", { allow: ["warn", "error", "info"] }],
       "unicorn/prefer-node-protocol": "error",
+      "typescript/prefer-readonly-parameter-types": "off",
     },
     overrides: [
       {
@@ -54,9 +55,9 @@ export default defineConfig({
                     "express",
                     "mongoose",
                     "pino*",
-                    "@infrastructure/*",
-                    "@interfaces/*",
-                    "@application/*",
+                    "#infrastructure/*",
+                    "#interfaces/*",
+                    "#application/*",
                   ],
                   message:
                     "HEXAGONAL VIOLATION: Core Domain must remain 100% pure and free of framework or outer-layer imports.",
@@ -67,6 +68,12 @@ export default defineConfig({
         },
       },
       {
+        files: ["src/domain/errors/**/*.ts"],
+        rules: {
+          "eslint/max-classes-per-file": "off",
+        },
+      },
+      {
         files: ["src/application/**/*.ts"],
         rules: {
           "no-restricted-imports": [
@@ -74,7 +81,7 @@ export default defineConfig({
             {
               patterns: [
                 {
-                  group: ["express", "mongoose", "@infrastructure/*", "@interfaces/*"],
+                  group: ["express", "mongoose", "#infrastructure/*", "#interfaces/*"],
                   message:
                     "HEXAGONAL VIOLATION: Application Use Cases can only depend on Domain ports, never Infrastructure or HTTP adapters.",
                 },

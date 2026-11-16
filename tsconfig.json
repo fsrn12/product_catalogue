@@ -1,22 +1,18 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "types": ["node"],
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "moduleDetection": "force",
     "lib": ["ESNext", "DOM"],
     "rootDir": "./src",
     "outDir": "./dist",
 
-    /* PATH ALIASES*/
-    "paths": {
-      "@domain/*": ["./src/domain/*"],
-      "@application/*": ["./src/application/*"],
-      "@infrastructure/*": ["./src/infrastructure/*"],
-      "@interfaces/*": ["./src/interfaces/*"]
-    },
-
     /* Strict Enterprise Type Safety */
     "strict": true,
+    "rewriteRelativeImportExtensions": true,
+    "allowImportingTsExtensions": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noImplicitOverride": true,

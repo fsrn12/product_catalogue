@@ -3,25 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "license": "ISC",
-  "devEngines": {
-    "runtime": {
-      "name": "node",
-      "version": "^26.13.1",
-      "onFail": "error"
-    },
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^12.20.0",
-      "onFail": "error"
-    }
-  },
-  "packageManager": "pnpm@12.20.0",
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
   "type": "module",
   "main": "./dist/server.js",
+  "imports": {
+    "#domain/*": "./src/domain/*.ts",
+    "#application/*": "./src/application/*.ts",
+    "#infrastructure/*": "./src/infrastructure/*.ts",
+    "#interfaces/*": "./src/interfaces/*.ts"
+  },
   "scripts": {
     "dev": "vpx --watch --env-file=.env src/server.ts",
     "typecheck": "tsgo --noEmit",
@@ -34,9 +23,6 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "@oslojs/binary": "^1.0.0",
-    "@oslojs/crypto": "^1.0.1",
-    "@oslojs/encoding": "^1.1.0",
     "argon2": "^0.45.2",
     "express": "^5.3.0",
     "jose": "^6.2.17",
@@ -46,9 +32,27 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/node": "^26.6.6",
     "cspell": "^10.4.1",
     "typescript": "^7.0.2",
     "vite-plus": "^1.6.0"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^12.20.0",
+      "onFail": "error"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "^26.13.1",
+      "onFail": "error"
+    }
+  },
+  "packageManager": "pnpm@12.20.0"
 }
